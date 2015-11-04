@@ -160,6 +160,7 @@ class MySQLiFake
     public static $commitCalled = false;
     public static $allowQuery = true;
     public static $queryCalled = false;
+    public static $lastStatement = '';
     public static $allowPrepare = true;
     public static $prepareCalled = false;
 
@@ -172,6 +173,7 @@ class MySQLiFake
         self::$rollbackCalled = false;
         self::$allowQuery = true;
         self::$queryCalled = false;
+        self::$lastStatement = '';
         self::$allowPrepare = true;
         self::$prepareCalled = false;
     }
@@ -219,13 +221,14 @@ class MySQLiFake
         return true;
     }
 
-    public function query()
+    public function query($statement)
     {
         self::$queryCalled = true;
 
         $this->errno = self::$definedErrorCode;
+        self::$lastStatement = $statement;
 
-        return self::$allowQuery ? null : false;
+        return self::$allowQuery ? (stripos($statement, 'select') !== false ? new MySQLiResultFake() : true) : false;
     }
 
     public function prepare()

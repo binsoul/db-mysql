@@ -191,16 +191,22 @@ class DefaultConnection implements Connection
 
     public function begin()
     {
-        if ($this->transactionCount == 0 && !@$this->mysqli->autocommit(false)) {
-            return false;
+        if ($this->transactionCount == 0) {
+            if (!@$this->mysqli->autocommit(false)) {
+                return false;
+            }
+
+            @$this->mysqli->query('SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ');
+            $result = @$this->mysqli->query('START TRANSACTION');
+        } else {
+            $result = @$this->mysqli->query('SAVEPOINT point'.$this->transactionCount);
         }
 
-        ++$this->transactionCount;
+        if ($result) {
+            ++$this->transactionCount;
+        }
 
-        @$this->mysqli->query('SET SESSION TRANSACTION ISOLATION LEVEL REPEATABLE READ');
-        @$this->mysqli->query('START TRANSACTION');
-
-        return true;
+        return $result;
     }
 
     public function commit()
@@ -209,7 +215,11 @@ class DefaultConnection implements Connection
             return false;
         }
 
-        $result = @$this->mysqli->commit();
+        if ($this->transactionCount == 1) {
+            $result = @$this->mysqli->commit();
+        } else {
+            $result = @$this->mysqli->query('RELEASE SAVEPOINT point'.($this->transactionCount - 1));
+        }
 
         $this->popTransaction();
 
@@ -222,7 +232,11 @@ class DefaultConnection implements Connection
             return false;
         }
 
-        $result = @$this->mysqli->rollback();
+        if ($this->transactionCount == 1) {
+            $result = @$this->mysqli->rollback();
+        } else {
+            $result = @$this->mysqli->query('ROLLBACK TO point'.($this->transactionCount - 1));
+        }
 
         $this->popTransaction();
 

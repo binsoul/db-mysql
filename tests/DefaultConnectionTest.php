@@ -72,6 +72,8 @@ class DefaultConnectionTest extends \PHPUnit_Framework_TestCase
         $connection->open();
         $this->assertTrue($connection->begin());
         $this->assertTrue(MySQLiFake::$autocommitCalled);
+        $this->assertTrue(MySQLiFake::$queryCalled);
+        $this->assertContains('start transaction', MySQLiFake::$lastStatement, '', true);
     }
 
     public function test_begin_returns_false_if_autocommit_fails()
@@ -81,6 +83,17 @@ class DefaultConnectionTest extends \PHPUnit_Framework_TestCase
         $connection->open();
         $this->assertFalse($connection->begin());
         $this->assertTrue(MySQLiFake::$autocommitCalled);
+        $this->assertFalse(MySQLiFake::$queryCalled);
+    }
+
+    public function test_begin_uses_savepoints()
+    {
+        MySQLiFake::$allowAutocommit = true;
+        $connection = new DefaultConnection($this->buildSettings());
+        $connection->open();
+        $this->assertTrue($connection->begin());
+        $this->assertTrue($connection->begin());
+        $this->assertContains('savepoint', MySQLiFake::$lastStatement, '', true);
     }
 
     public function test_commit()
@@ -91,6 +104,16 @@ class DefaultConnectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($connection->commit());
         $this->assertTrue(MySQLiFake::$commitCalled);
         $this->assertTrue(MySQLiFake::$autocommitCalled);
+    }
+
+    public function test_commit_uses_savepoints()
+    {
+        $connection = new DefaultConnection($this->buildSettings());
+        $connection->open();
+        $connection->begin();
+        $connection->begin();
+        $this->assertTrue($connection->commit());
+        $this->assertContains('savepoint', MySQLiFake::$lastStatement, '', true);
     }
 
     public function test_commit_returns_false_if_not_in_transaction()
@@ -109,6 +132,16 @@ class DefaultConnectionTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($connection->rollback());
         $this->assertTrue(MySQLiFake::$rollbackCalled);
         $this->assertTrue(MySQLiFake::$autocommitCalled);
+    }
+
+    public function test_rollback_uses_savepoints()
+    {
+        $connection = new DefaultConnection($this->buildSettings());
+        $connection->open();
+        $connection->begin();
+        $connection->begin();
+        $this->assertTrue($connection->rollback());
+        $this->assertContains('rollback', MySQLiFake::$lastStatement, '', true);
     }
 
     public function test_rollback_returns_false_if_not_in_transaction()
