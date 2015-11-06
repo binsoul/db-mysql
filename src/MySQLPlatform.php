@@ -2,6 +2,7 @@
 
 namespace BinSoul\Db\MySQL;
 
+use BinSoul\Db\Connection;
 use BinSoul\Db\ConnectionSettings;
 use BinSoul\Db\Platform;
 
@@ -22,5 +23,10 @@ class MySQLPlatform implements Platform
     public function getStatementBuilder()
     {
         return new DefaultStatementBuilder();
+    }
+
+    public function getDefinitionProvider(Connection $connection)
+    {
+        return new DefaultDefinitionProvider($connection);
     }
 }

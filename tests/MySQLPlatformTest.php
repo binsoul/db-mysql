@@ -2,7 +2,9 @@
 
 namespace BinSoul\Test\Db\MySQL;
 
+use BinSoul\Db\Connection;
 use BinSoul\Db\ConnectionSettings;
+use BinSoul\Db\DefinitionProvider;
 use BinSoul\Db\MySQL\DefaultConnection;
 use BinSoul\Db\MySQL\MySQLConnectionSettings;
 use BinSoul\Db\MySQL\MySQLPlatform;
@@ -31,5 +33,12 @@ class MySQLPlatformTest extends \PHPUnit_Framework_TestCase
         $platform = new MySQLPlatform();
         $builder = $platform->getStatementBuilder();
         $this->assertInstanceOf(DefaultStatementBuilder::class, $builder);
+    }
+
+    public function test_returns_definition_provider()
+    {
+        $platform = new MySQLPlatform();
+        $provider = $platform->getDefinitionProvider($this->getMock(Connection::class));
+        $this->assertInstanceOf(DefinitionProvider::class, $provider);
     }
 }

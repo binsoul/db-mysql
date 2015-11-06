@@ -157,7 +157,7 @@ class DefaultConnection implements Connection
         $statement->bind_param($this->buildTypes($parameters), ...$variables);
     }
 
-    public function execute($statement, array $parameters)
+    public function execute($statement, array $parameters = [])
     {
         if (count($parameters) == 0) {
             $result = @$this->mysqli->query($statement);

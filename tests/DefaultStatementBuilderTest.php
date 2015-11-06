@@ -13,25 +13,25 @@ class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
                 'table',
                 ['*'],
                 'column=?',
-                'SELECT * FROM `table` WHERE column=?'
+                'SELECT * FROM `table` WHERE column=?',
             ],
             [
                 'table',
                 ['column'],
                 'column=?',
-                'SELECT `column` FROM `table` WHERE column=?'
+                'SELECT `column` FROM `table` WHERE column=?',
             ],
             [
                 'table',
                 ['column AS a'],
                 '',
-                'SELECT column AS a FROM `table`'
+                'SELECT column AS a FROM `table`',
             ],
             [
                 'table t',
                 ['t.column'],
                 '',
-                'SELECT t.column FROM table t'
+                'SELECT t.column FROM table t',
             ],
         ];
     }
@@ -52,25 +52,25 @@ class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
                 'table',
                 [
                     'col1' => 'value1',
-                    'col2' => 'value2'
+                    'col2' => 'value2',
                 ],
-                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,?)'
+                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,?)',
             ],
             [
                 'table',
                 [
                     'col1' => 'value1',
-                    'col2' => null
+                    'col2' => null,
                 ],
-                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,NULL)'
+                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,NULL)',
             ],
             [
                 'table',
                 [
                     'col1' => 'value1',
-                    'col2' => 'now()'
+                    'col2' => 'now()',
                 ],
-                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,now())'
+                'INSERT INTO `table` (`col1`,`col2`) VALUES(?,now())',
             ],
         ];
     }
@@ -91,28 +91,28 @@ class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
                 'table',
                 [
                     'col1' => 'value',
-                    'col2' => 'value'
+                    'col2' => 'value',
                 ],
                 'a=b',
-                'UPDATE `table` SET `col1`=?,`col2`=? WHERE a=b'
+                'UPDATE `table` SET `col1`=?,`col2`=? WHERE a=b',
             ],
             [
                 'table',
                 [
                     'col1' => 'value',
-                    'col2' => null
+                    'col2' => null,
                 ],
                 '',
-                'UPDATE `table` SET `col1`=?,`col2`=NULL'
+                'UPDATE `table` SET `col1`=?,`col2`=NULL',
             ],
             [
                 'table',
                 [
                     'col1' => 'value',
-                    'col2' => 'now()'
+                    'col2' => 'now()',
                 ],
                 '',
-                'UPDATE `table` SET `col1`=?,`col2`=now()'
+                'UPDATE `table` SET `col1`=?,`col2`=now()',
             ],
         ];
     }
@@ -132,12 +132,12 @@ class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
             [
                 'table',
                 '',
-                'DELETE FROM `table`'
+                'DELETE FROM `table`',
             ],
             [
                 'table',
                 'a=b',
-                'DELETE FROM `table` WHERE a=b'
+                'DELETE FROM `table` WHERE a=b',
             ],
         ];
     }
@@ -157,30 +157,30 @@ class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
             [
                 [
                     'col1' => 'val1',
-                    'col2' => 'val2'
+                    'col2' => 'val2',
                 ],
                 [
                     'val1',
-                    'val2'
-                ]
+                    'val2',
+                ],
             ],
             [
                 [
                     'col1' => true,
-                    'col2' => false
+                    'col2' => false,
                 ],
                 [
                     1,
-                    0
-                ]
+                    0,
+                ],
             ],
             [
                 ['col1' => null],
-                []
+                [],
             ],
             [
                 ['col1' => 'now()'],
-                []
+                [],
             ],
         ];
     }
