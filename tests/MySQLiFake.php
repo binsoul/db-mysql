@@ -1,6 +1,6 @@
 <?php
 
-namespace BinSoul\Db\MySQL;
+namespace BinSoul\Db\Platform\MySQL;
 
 class MySQLiResultFake
 {

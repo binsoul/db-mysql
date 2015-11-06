@@ -1,8 +1,8 @@
 <?php
 
-namespace BinSoul\Db\MySQL;
+namespace BinSoul\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\Platform\BuiltinFunctions;
+use BinSoul\Db\Platform\MySQL\Platform\BuiltinFunctions;
 use BinSoul\Db\StatementBuilder;
 
 /**

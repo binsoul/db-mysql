@@ -1,6 +1,6 @@
 <?php
 
-namespace BinSoul\Db\MySQL;
+namespace BinSoul\Db\Platform\MySQL;
 
 /**
  * Fetches data from a {@see mysqli_stmt} instance.

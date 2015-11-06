@@ -1,6 +1,6 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
 use BinSoul\Db\Definition\DataType\BigIntegerType;
 use BinSoul\Db\Definition\DataType\BitType;
@@ -18,7 +18,7 @@ use BinSoul\Db\Definition\DataType\TimeType;
 use BinSoul\Db\Definition\DataType\TinyIntegerType;
 use BinSoul\Db\Definition\DataType\UnixTimestampType;
 use BinSoul\Db\Definition\DataType\VarcharType;
-use BinSoul\Db\MySQL\DataTypeFactory;
+use BinSoul\Db\Platform\MySQL\DataTypeFactory;
 
 class DataTypeFactoryTest extends \PHPUnit_Framework_TestCase
 {

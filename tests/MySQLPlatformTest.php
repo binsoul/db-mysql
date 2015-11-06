@@ -1,14 +1,14 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
 use BinSoul\Db\Connection;
 use BinSoul\Db\ConnectionSettings;
 use BinSoul\Db\DefinitionProvider;
-use BinSoul\Db\MySQL\DefaultConnection;
-use BinSoul\Db\MySQL\MySQLConnectionSettings;
-use BinSoul\Db\MySQL\MySQLPlatform;
-use BinSoul\Db\MySQL\DefaultStatementBuilder;
+use BinSoul\Db\Platform\MySQL\DefaultConnection;
+use BinSoul\Db\Platform\MySQL\MySQLConnectionSettings;
+use BinSoul\Db\Platform\MySQL\MySQLPlatform;
+use BinSoul\Db\Platform\MySQL\DefaultStatementBuilder;
 
 class MySQLPlatformTest extends \PHPUnit_Framework_TestCase
 {

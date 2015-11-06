@@ -1,11 +1,11 @@
 {
-    "name": "binsoul/db-mysql",
+    "name": "binsoul/db-platform-mysql",
     "description": "Platform implementation for MySQL based on the mysqli extension",
     "keywords": [
         "database",
         "MySQL"
     ],
-    "homepage": "https://github.com/binsoul/db-mysql",
+    "homepage": "https://github.com/binsoul/db-platform-mysql",
     "license": "MIT",
     "authors": [
         {
@@ -25,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BinSoul\\Db\\MySQL\\": "src"
+            "BinSoul\\Db\\Platform\\MySQL\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BinSoul\\Db\\MySQL\\": "tests"
+            "BinSoul\\Db\\Platform\\MySQL\\": "tests"
         }
     },
     "scripts": {

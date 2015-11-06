@@ -1,10 +1,10 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\MySQLiFake;
-use BinSoul\Db\MySQL\MySQLiResultFake;
-use BinSoul\Db\MySQL\QueryResult;
+use BinSoul\Db\Platform\MySQL\MySQLiFake;
+use BinSoul\Db\Platform\MySQL\MySQLiResultFake;
+use BinSoul\Db\Platform\MySQL\QueryResult;
 
 class QueryResultTest extends AbstractResultTest
 {

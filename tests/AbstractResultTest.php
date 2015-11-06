@@ -1,10 +1,10 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\MySQLiFake;
-use BinSoul\Db\MySQL\MySQLiStmtFake;
-use BinSoul\Db\MySQL\StatementResult;
+use BinSoul\Db\Platform\MySQL\MySQLiFake;
+use BinSoul\Db\Platform\MySQL\MySQLiStmtFake;
+use BinSoul\Db\Platform\MySQL\StatementResult;
 use BinSoul\Db\Result;
 
 include_once 'MySQLiFake.php';

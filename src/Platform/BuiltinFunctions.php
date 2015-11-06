@@ -1,6 +1,6 @@
 <?php
 
-namespace BinSoul\Db\MySQL\Platform;
+namespace BinSoul\Db\Platform\MySQL\Platform;
 
 /**
  * Provides methods related to MySQL builtin functions.

@@ -1,8 +1,8 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL\Platform;
+namespace BinSoul\Test\Db\Platform\MySQL\Platform;
 
-use BinSoul\Db\MySQL\Platform\BuiltinFunctions;
+use BinSoul\Db\Platform\MySQL\Platform\BuiltinFunctions;
 
 class BuiltinFunctionsTest extends \PHPUnit_Framework_TestCase
 {

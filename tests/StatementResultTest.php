@@ -1,9 +1,9 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\MySQLiStmtFake;
-use BinSoul\Db\MySQL\StatementResult;
+use BinSoul\Db\Platform\MySQL\MySQLiStmtFake;
+use BinSoul\Db\Platform\MySQL\StatementResult;
 
 class StatementResultTest extends AbstractResultTest
 {

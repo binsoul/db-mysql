@@ -1,8 +1,8 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\DefaultStatementBuilder;
+use BinSoul\Db\Platform\MySQL\DefaultStatementBuilder;
 
 class DefaultStatementBuilderTest extends \PHPUnit_Framework_TestCase
 {

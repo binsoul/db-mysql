@@ -1,11 +1,11 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
 use BinSoul\Db\Connection;
 use BinSoul\Db\Definition\Schema;
 use BinSoul\Db\Definition\Table;
-use BinSoul\Db\MySQL\DefaultDefinitionProvider;
+use BinSoul\Db\Platform\MySQL\DefaultDefinitionProvider;
 use BinSoul\Db\Result;
 
 class DefaultDefinitionProviderTest extends \PHPUnit_Framework_TestCase

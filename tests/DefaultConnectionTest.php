@@ -1,12 +1,12 @@
 <?php
 
-namespace BinSoul\Test\Db\MySQL;
+namespace BinSoul\Test\Db\Platform\MySQL;
 
-use BinSoul\Db\MySQL\DefaultConnection;
-use BinSoul\Db\MySQL\MySQLConnectionSettings;
-use BinSoul\Db\MySQL\MySQLiFake;
-use BinSoul\Db\MySQL\MySQLiStmtFake;
-use BinSoul\Db\MySQL\AbstractResult;
+use BinSoul\Db\Platform\MySQL\DefaultConnection;
+use BinSoul\Db\Platform\MySQL\MySQLConnectionSettings;
+use BinSoul\Db\Platform\MySQL\MySQLiFake;
+use BinSoul\Db\Platform\MySQL\MySQLiStmtFake;
+use BinSoul\Db\Platform\MySQL\AbstractResult;
 
 include_once 'MySQLiFake.php';
 
